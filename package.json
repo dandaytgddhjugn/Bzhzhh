@@ -1,0 +1,18 @@
+{
+  "name": "gamestore-id",
+  "version": "1.0.0",
+  "description": "GameStore ID - Top Up Game + Telegram Bot Admin",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "node-telegram-bot-api": "^0.66.0",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.0",
+    "form-data": "^4.0.0"
+  }
+}
