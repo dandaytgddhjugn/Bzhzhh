@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameStore ID — Top Up Game #1 Indonesia</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --r:#e8192c;--o:#ff6b1a;--y:#ffd600;--g:#00e676;--b:#00b4ff;--p:#b44bff;
+  --bg:#080b14;--bg2:#0d1120;--bg3:#111828;--card:#111828;--card2:#161e30;
+  --w:#fff;--t:#cdd5e0;--t2:#6b7a94;--bdr:rgba(255,255,255,.08);
+  --sh:0 4px 24px rgba(0,0,0,.4);--sh2:0 20px 60px rgba(0,0,0,.6);
+  --f:'Nunito',sans-serif;--fh:'Rajdhani',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--t);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#ffffff20;border-radius:4px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;height:62px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1rem,4vw,3rem);
+  background:rgba(8,11,20,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bdr)}
+.nlogo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.nlogo-ic{width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 16px rgba(232,25,44,.5)}
+.nlogo-ic svg{width:20px;height:20px}
+.nlogo-tx{font-family:var(--fh);font-size:1.4rem;font-weight:700;color:var(--w);letter-spacing:1px}
+.nlogo-tx b{color:var(--y)}
+.nbadge{background:linear-gradient(135deg,var(--r),var(--o));color:#fff;
+  font-size:.68rem;font-weight:800;padding:5px 14px;border-radius:50px;letter-spacing:.5px;
+  box-shadow:0 0 16px rgba(232,25,44,.4)}
+@media(max-width:600px){.nbadge{display:none}}
+
+.pg{display:none}.pg.on{display:block}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+  padding:80px clamp(1rem,4vw,3rem) 60px}
+/* animated bg layers */
+.hbg{position:absolute;inset:0;z-index:0;background:var(--bg)}
+.hbg-g1{position:absolute;width:800px;height:800px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,25,44,.12) 0%,transparent 60%);
+  top:-200px;right:-100px;animation:orb1 12s ease-in-out infinite alternate}
+.hbg-g2{position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,180,255,.08) 0%,transparent 60%);
+  bottom:-150px;left:-50px;animation:orb2 15s ease-in-out infinite alternate}
+.hbg-g3{position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(180,75,255,.07) 0%,transparent 60%);
+  top:30%;left:40%;animation:orb1 18s ease-in-out infinite}
+@keyframes orb1{0%{transform:translate(0,0) scale(1)}100%{transform:translate(40px,-40px) scale(1.15)}}
+@keyframes orb2{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-30px,30px) scale(1.1)}}
+/* grid */
+.hgrid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+             linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 20%,transparent 75%)}
+/* particles */
+.hpart{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hp{position:absolute;border-radius:50%;animation:pfloat linear infinite}
+@keyframes pfloat{0%{transform:translateY(110vh) rotate(0);opacity:0}8%{opacity:1}90%{opacity:.4}100%{transform:translateY(-80px) rotate(720deg);opacity:0}}
+
+.hero-in{max-width:1200px;width:100%;margin:0 auto;position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+
+/* hero badge */
+.hbadge{display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;
+  background:linear-gradient(135deg,rgba(232,25,44,.15),rgba(255,107,26,.1));
+  border:1px solid rgba(232,25,44,.4);color:#ff8090;
+  padding:7px 18px;border-radius:50px;font-size:.78rem;font-weight:800;letter-spacing:1.5px;
+  animation:badgepulse 3s ease-in-out infinite}
+@keyframes badgepulse{0%,100%{box-shadow:0 0 0 0 rgba(232,25,44,.3)}50%{box-shadow:0 0 0 8px rgba(232,25,44,0)}}
+.hbadge-dot{width:7px;height:7px;border-radius:50%;background:var(--r);animation:dotblink 1.5s ease-in-out infinite}
+@keyframes dotblink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(232,25,44,.6)}50%{opacity:.5;box-shadow:0 0 8px 2px rgba(232,25,44,.4)}}
+
+/* hero title */
+.htitle{font-family:var(--fh);font-size:clamp(2.8rem,7vw,5rem);font-weight:700;
+  color:var(--w);line-height:1.0;letter-spacing:1px;margin-bottom:1.1rem}
+.htitle .line-grad{background:linear-gradient(90deg,var(--r) 0%,var(--o) 40%,var(--y) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  background-size:200%;animation:gradanim 4s linear infinite}
+@keyframes gradanim{0%{background-position:0%}100%{background-position:200%}}
+.htitle .line-glow{color:var(--b);text-shadow:0 0 30px rgba(0,180,255,.5),0 0 60px rgba(0,180,255,.2)}
+
+.hdesc{color:var(--t2);font-size:1.05rem;max-width:500px;line-height:1.9;margin-bottom:2rem}
+
+/* chips */
+.hchips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2.25rem}
+.hchip{display:flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.75);padding:8px 16px;border-radius:50px;
+  font-size:.82rem;font-weight:700;transition:all .25s;cursor:default}
+.hchip:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;transform:translateY(-2px)}
+.hchip-dot{width:6px;height:6px;border-radius:50%}
+
+/* CTA */
+.hcta{display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--r),var(--o));color:#fff;
+  padding:17px 40px;border-radius:14px;font-weight:900;font-size:1.05rem;
+  cursor:pointer;border:none;font-family:var(--f);
+  box-shadow:0 0 32px rgba(232,25,44,.45),0 8px 24px rgba(232,25,44,.3);
+  transition:all .28s;letter-spacing:.3px;position:relative;overflow:hidden}
+.hcta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+  transform:translateX(-100%);transition:transform .4s}
+.hcta:hover{transform:translateY(-3px);box-shadow:0 0 48px rgba(232,25,44,.6),0 12px 36px rgba(232,25,44,.4)}
+.hcta:hover::before{transform:translateX(0)}
+.hcta svg{width:20px;height:20px;transition:transform .28s}
+.hcta:hover svg{transform:translateX(5px)}
+
+/* hero stats */
+.hstats{display:flex;gap:1rem;flex-shrink:0}
+.hstat{text-align:center;padding:1.5rem 1.75rem;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;backdrop-filter:blur(10px);transition:all .25s;
+  position:relative;overflow:hidden}
+.hstat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--r),var(--o),var(--y))}
+.hstat:hover{transform:translateY(-4px);background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15)}
+.hsn{font-family:var(--fh);font-size:2.6rem;font-weight:700;line-height:1;
+  background:linear-gradient(135deg,var(--y),var(--o));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hsl{color:var(--t2);font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-top:5px}
+@media(max-width:700px){.hstats{display:none}}
+
+/* PROMO STRIP */
+.pstrip{background:linear-gradient(135deg,#8b0010,var(--r),#c84400,var(--o));
+  background-size:300% 100%;animation:pstripAnim 6s linear infinite;
+  padding:1.1rem clamp(1rem,4vw,3rem);display:flex;align-items:center;
+  justify-content:center;gap:1.25rem;flex-wrap:wrap;
+  box-shadow:0 4px 32px rgba(232,25,44,.5),0 0 60px rgba(255,107,26,.2)}
+@keyframes pstripAnim{0%{background-position:0%}100%{background-position:300%}}
+.pstrip p{color:#fff;font-size:.95rem;font-weight:800}
+.pstrip-badge{background:rgba(0,0,0,.28);color:#fff;padding:5px 18px;
+  border-radius:50px;font-size:.8rem;font-weight:900;border:1px solid rgba(255,255,255,.35);
+  letter-spacing:.5px;animation:badgepulse2 2s ease-in-out infinite}
+@keyframes badgepulse2{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+/* SECTION */
+.wrap{max-width:1200px;margin:0 auto;padding:2.5rem clamp(1rem,3vw,2.5rem)}
+.sechd{display:flex;align-items:center;gap:12px;margin-bottom:1.75rem}
+.secbar{width:4px;height:28px;border-radius:4px;
+  background:linear-gradient(to bottom,var(--r),var(--o));
+  box-shadow:0 0 12px rgba(232,25,44,.5)}
+.sechd h2{font-family:var(--fh);font-size:1.45rem;font-weight:700;color:var(--w);letter-spacing:.5px}
+.sechd span{font-size:.85rem;color:var(--t2);font-weight:500;margin-left:4px}
+
+/* BANNER SLIDER */
+.bsec{padding:2rem 0 0}
+.bsec-hd{padding:0 clamp(1rem,4vw,3rem);margin-bottom:1.2rem;
+  display:flex;align-items:center;justify-content:space-between}
+.bsec-hd h3{font-family:var(--fh);font-size:1.15rem;font-weight:700;color:var(--w);letter-spacing:.5px}
+.btrack{display:flex;gap:1rem;padding:0 clamp(1rem,4vw,3rem) 1rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.btrack::-webkit-scrollbar{display:none}
+
+/* BANNER CARD */
+.bcard{flex:0 0 195px;scroll-snap-align:start;border-radius:20px;overflow:hidden;
+  cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);
+  box-shadow:var(--sh2);position:relative;background:var(--card);
+  border:1px solid var(--bdr)}
+.bcard:hover{transform:translateY(-12px) scale(1.03);border-color:rgba(232,25,44,.5);
+  box-shadow:0 24px 60px rgba(0,0,0,.7),0 0 30px rgba(232,25,44,.2)}
+.bcard-top{height:150px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.bcard-bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.bcard:hover .bcard-bg{transform:scale(1.12)}
+.bcard-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.1) 60%)}
+/* Game icon */
+.bcard-icon{width:92px;height:92px;border-radius:22px;position:relative;z-index:2;
+  overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.6),0 0 20px rgba(255,255,255,.05);
+  transition:transform .35s cubic-bezier(.4,0,.2,1);flex-shrink:0}
+.bcard:hover .bcard-icon{transform:scale(1.1) translateY(-5px)}
+.bcard-icon img{width:100%;height:100%;object-fit:cover;display:block}
+.bcard-icon-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+/* badge */
+.bcard-badge{position:absolute;top:10px;right:10px;z-index:3;
+  font-size:.58rem;font-weight:900;padding:4px 10px;border-radius:8px;
+  color:#fff;letter-spacing:1px}
+.b-hot{background:var(--r);box-shadow:0 0 10px rgba(232,25,44,.6)}
+.b-new{background:var(--g);color:#000;box-shadow:0 0 10px rgba(0,230,118,.5)}
+/* info */
+.bcard-info{padding:12px 14px 14px;background:var(--card)}
+.bcard-name{font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--w);
+  margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.3px}
+.bcard-price{font-size:.78rem;color:var(--t2);font-weight:600}
+.bcard-price b{color:var(--r);font-size:.84rem;font-weight:800}
+
+/* GAME GRID */
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin-bottom:2.5rem}
+.gc{background:var(--card);border-radius:20px;overflow:hidden;cursor:pointer;
+  transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:var(--sh);
+  border:1.5px solid var(--bdr);position:relative}
+.gc:hover{transform:translateY(-8px);box-shadow:var(--sh2);border-color:rgba(232,25,44,.4)}
+.gc.on{border-color:var(--r);box-shadow:0 0 0 3px rgba(232,25,44,.15),var(--sh2)}
+.gc-check{display:none;position:absolute;top:8px;left:8px;width:24px;height:24px;
+  background:var(--r);border-radius:50%;align-items:center;justify-content:center;
+  z-index:4;box-shadow:0 0 12px rgba(232,25,44,.6)}
+.gc-check svg{width:14px;height:14px}
+.gc.on .gc-check{display:flex}
+/* game thumb */
+.gc-thumb{height:115px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.gc-thumb-bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .4s cubic-bezier(.4,0,.2,1);filter:brightness(.75)}
+.gc:hover .gc-thumb-bg{transform:scale(1.1);filter:brightness(.95)}
+.gc-thumb-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6) 0%,transparent 50%)}
+.gc-icon{width:78px;height:78px;border-radius:20px;overflow:hidden;position:relative;z-index:2;
+  box-shadow:0 8px 28px rgba(0,0,0,.5),0 0 16px rgba(255,255,255,.04);
+  transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.gc:hover .gc-icon{transform:scale(1.1) translateY(-4px)}
+.gc-icon img{width:100%;height:100%;object-fit:cover;display:block}
+.gc-icon-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+.gc-badge{position:absolute;top:8px;right:8px;font-size:.56rem;font-weight:900;
+  padding:3px 8px;border-radius:6px;color:#fff;z-index:4;letter-spacing:.8px}
+/* info */
+.gc-info{padding:11px 13px 14px;background:var(--card)}
+.gc-name{font-weight:800;font-size:.9rem;margin-bottom:4px;color:var(--w);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gc-sub{font-size:.74rem;color:var(--t2);font-weight:600}
+.gc-sub .pr{color:var(--r);font-weight:800;font-size:.78rem}
+
+/* STEPS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:1rem;margin-bottom:2.5rem}
+.step{background:var(--card);border-radius:18px;padding:1.6rem;box-shadow:var(--sh);
+  border:1px solid var(--bdr);transition:all .25s;position:relative;overflow:hidden}
+.step:hover{transform:translateY(-5px);border-color:rgba(232,25,44,.3)}
+.step::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--r),var(--o),var(--y))}
+.step-n{width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(135deg,var(--r),var(--o));
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1rem;box-shadow:0 0 16px rgba(232,25,44,.4)}
+.step-n svg{width:22px;height:22px}
+.step-tt{font-weight:800;font-size:.92rem;margin-bottom:.4rem;color:var(--w)}
+.step-dd{font-size:.79rem;color:var(--t2);line-height:1.65}
+
+/* TOPUP PAGE */
+.pgbody{background:var(--bg);min-height:calc(100vh - 62px);padding-top:62px}
+.back-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);
+  border:1px solid var(--bdr);border-radius:10px;
+  color:var(--t2);font-family:var(--f);font-size:.88rem;font-weight:700;
+  cursor:pointer;padding:9px 16px;margin-bottom:1.75rem;transition:all .2s}
+.back-btn:hover{background:rgba(255,255,255,.1);color:var(--w);border-color:rgba(232,25,44,.4)}
+.back-btn svg{width:17px;height:17px}
+.tu-layout{display:grid;grid-template-columns:1fr 365px;gap:1.75rem;align-items:start}
+@media(max-width:900px){.tu-layout{grid-template-columns:1fr}}
+
+/* CARDS */
+.card{background:var(--card);border-radius:22px;padding:2rem;box-shadow:var(--sh);border:1px solid var(--bdr)}
+.tu-ghd{display:flex;align-items:center;gap:16px;margin-bottom:1.75rem;
+  padding-bottom:1.5rem;border-bottom:1px solid var(--bdr)}
+.tu-gico{width:68px;height:68px;border-radius:18px;overflow:hidden;flex-shrink:0;
+  box-shadow:0 6px 24px rgba(0,0,0,.4),0 0 16px rgba(255,255,255,.03)}
+.tu-gico img{width:100%;height:100%;object-fit:cover;display:block}
+.tu-gname{font-family:var(--fh);font-size:1.25rem;font-weight:700;color:var(--w);letter-spacing:.5px}
+.tu-gsub{font-size:.82rem;color:var(--g);font-weight:700;margin-top:4px;
+  display:flex;align-items:center;gap:6px}
+.tu-gsub svg{width:14px;height:14px}
+
+.slbl{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;
+  color:var(--r);margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.snum{width:22px;height:22px;background:linear-gradient(135deg,var(--r),var(--o));
+  color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;
+  font-size:.66rem;font-weight:900}
+.fi{margin-bottom:1.3rem}
+.fl{display:block;font-size:.83rem;font-weight:700;margin-bottom:8px;color:var(--t)}
+.inp{width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:13px 15px;font-family:var(--f);font-size:.92rem;font-weight:600;
+  color:var(--w);outline:none;transition:all .22s}
+.inp:focus{border-color:var(--r);background:rgba(255,255,255,.08);box-shadow:0 0 0 3px rgba(232,25,44,.12)}
+.inp::placeholder{color:rgba(255,255,255,.2);font-weight:500}
+.fhint{font-size:.74rem;color:var(--t2);margin-top:6px;display:flex;align-items:center;gap:5px}
+.fhint svg{width:13px;height:13px;flex-shrink:0;color:var(--b)}
+.divdr{height:1px;background:var(--bdr);margin:1.75rem 0}
+
+/* PACKAGES */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:520px){.pkg-grid{grid-template-columns:repeat(2,1fr)}}
+.pkg{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);
+  border-radius:15px;padding:14px 8px;text-align:center;cursor:pointer;
+  transition:all .22s;position:relative;min-height:120px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.pkg:hover{border-color:rgba(232,25,44,.5);background:rgba(232,25,44,.06);transform:translateY(-3px)}
+.pkg.on{border-color:var(--r);background:rgba(232,25,44,.1);
+  box-shadow:0 0 16px rgba(232,25,44,.2);transform:translateY(-3px)}
+.pkg-hot{position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(90deg,var(--o),var(--y));color:#000;
+  font-size:.52rem;font-weight:900;padding:3px 11px;border-radius:6px;
+  letter-spacing:1px;white-space:nowrap;box-shadow:0 2px 10px rgba(255,107,26,.5)}
+.pkg-gem{width:34px;height:34px;margin:0 auto 5px}
+.pkg-gem svg{width:100%;height:100%}
+.pamt{font-weight:900;font-size:1.05rem;color:var(--w);line-height:1}
+.pcur{font-size:.68rem;color:var(--t2);font-weight:700;margin-bottom:5px}
+.pprice{font-size:.9rem;font-weight:900;color:var(--r)}
+.porig{font-size:.66rem;color:rgba(255,255,255,.25);text-decoration:line-through}
+.pdisc{display:inline-block;background:rgba(0,230,118,.15);color:var(--g);
+  font-size:.6rem;font-weight:900;padding:2px 7px;border-radius:5px;margin-top:2px;
+  border:1px solid rgba(0,230,118,.3)}
+
+/* ORDER SUMMARY */
+.oc-tt{font-family:var(--fh);font-size:1.12rem;font-weight:700;margin-bottom:1.25rem;
+  padding-bottom:1rem;border-bottom:1px solid var(--bdr);color:var(--w);
+  display:flex;align-items:center;gap:10px;letter-spacing:.5px}
+.oc-tt svg{width:20px;height:20px;color:var(--r)}
+.omini{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);
+  border:1px solid var(--bdr);border-radius:14px;padding:12px;margin-bottom:1rem}
+.omini-ico{width:46px;height:46px;border-radius:12px;overflow:hidden;flex-shrink:0}
+.omini-ico img{width:100%;height:100%;object-fit:cover;display:block}
+.omini-name{font-weight:800;font-size:.88rem;color:var(--w)}
+.omini-sub{font-size:.73rem;color:var(--t2)}
+.orow{display:flex;justify-content:space-between;align-items:center;
+  padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.84rem}
+.orow:last-child{border-bottom:none}
+.orow .l{color:var(--t2);font-weight:600}
+.orow .v{font-weight:800;color:var(--w);max-width:175px;text-align:right;word-break:break-all}
+.ototal{background:linear-gradient(135deg,rgba(232,25,44,.12),rgba(255,107,26,.08));
+  border:1.5px solid rgba(232,25,44,.3);border-radius:14px;
+  padding:14px 16px;display:flex;justify-content:space-between;align-items:center;margin:1.1rem 0}
+.otl{font-weight:800;font-size:.9rem;color:var(--t)}
+.otv{font-family:var(--fh);font-size:1.5rem;font-weight:700;color:var(--r);
+  text-shadow:0 0 20px rgba(232,25,44,.4)}
+.btn-red{width:100%;background:linear-gradient(135deg,var(--r),var(--o));color:#fff;
+  border:none;border-radius:14px;padding:16px;font-family:var(--f);font-size:1rem;
+  font-weight:800;cursor:pointer;transition:all .25s;display:flex;align-items:center;
+  justify-content:center;gap:9px;
+  box-shadow:0 0 24px rgba(232,25,44,.4),0 6px 20px rgba(232,25,44,.25)}
+.btn-red:hover{transform:translateY(-2px);box-shadow:0 0 36px rgba(232,25,44,.6),0 10px 28px rgba(232,25,44,.35)}
+.btn-red:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-red svg{width:18px;height:18px;transition:transform .25s}
+.btn-red:hover svg{transform:translateX(4px)}
+
+/* PAYMENT */
+.pay-layout{display:grid;grid-template-columns:1fr 380px;gap:1.75rem;align-items:start}
+@media(max-width:920px){.pay-layout{grid-template-columns:1fr}}
+.pay-tt{font-family:var(--fh);font-size:1.2rem;font-weight:700;margin-bottom:1.5rem;
+  padding-bottom:1rem;border-bottom:1px solid var(--bdr);color:var(--w);letter-spacing:.5px}
+.qris-box{background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid var(--bdr);border-radius:20px;padding:2rem;text-align:center;margin-bottom:1.5rem}
+.qris-hd{font-weight:800;font-size:1rem;margin-bottom:4px;color:var(--w)}
+.qris-sub{font-size:.8rem;color:var(--t2);margin-bottom:1.35rem}
+.qris-frame{width:240px;height:240px;background:#fff;border-radius:16px;
+  margin:0 auto 1.35rem;padding:11px;
+  box-shadow:0 8px 32px rgba(0,0,0,.5),0 0 24px rgba(232,25,44,.1);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.qris-frame img{width:100%;height:100%;object-fit:contain;border-radius:8px}
+.qc{position:absolute;width:20px;height:20px;border-color:var(--r);border-style:solid}
+.qc.tl{top:6px;left:6px;border-width:3px 0 0 3px;border-radius:4px 0 0 0}
+.qc.tr{top:6px;right:6px;border-width:3px 3px 0 0;border-radius:0 4px 0 0}
+.qc.bl{bottom:6px;left:6px;border-width:0 0 3px 3px;border-radius:0 0 0 4px}
+.qc.br{bottom:6px;right:6px;border-width:0 3px 3px 0;border-radius:0 0 4px 0}
+.qris-amt{display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  color:var(--y);padding:11px 26px;border-radius:50px;
+  font-family:var(--fh);font-size:1.25rem;font-weight:700;letter-spacing:.5px;
+  box-shadow:0 0 20px rgba(255,214,0,.1)}
+.pay-apps{display:flex;justify-content:center;gap:8px;margin-top:1.2rem;flex-wrap:wrap}
+.papp{background:rgba(255,255,255,.06);border:1px solid var(--bdr);border-radius:9px;
+  padding:6px 12px;font-size:.72rem;font-weight:700;color:var(--t2);transition:all .2s;display:flex;align-items:center;gap:5px}
+.papp:hover{border-color:rgba(232,25,44,.4);color:var(--r)}
+.up-sec{margin-top:1.5rem}
+.up-tt{font-weight:800;font-size:1rem;margin-bottom:5px;color:var(--w)}
+.up-sub{font-size:.79rem;color:var(--t2);margin-bottom:1rem;line-height:1.65}
+.drop{border:2px dashed rgba(255,255,255,.15);border-radius:16px;
+  padding:2.5rem 1.5rem;text-align:center;cursor:pointer;
+  transition:all .25s;background:rgba(255,255,255,.03)}
+.drop:hover,.drop.ov{border-color:var(--r);background:rgba(232,25,44,.06)}
+.drop-ic{margin-bottom:.75rem;transition:transform .25s}
+.drop:hover .drop-ic{transform:translateY(-5px)}
+.drop-ic svg{width:52px;height:52px;color:rgba(255,255,255,.2)}
+.drop:hover .drop-ic svg{color:var(--r)}
+.drop-tx{font-size:.9rem;color:var(--t2);font-weight:600}
+.drop-tx span{color:var(--r);font-weight:800}
+.drop-hint{font-size:.73rem;color:rgba(255,255,255,.2);margin-top:4px}
+.prev-wrap{display:none;margin-top:1rem;justify-content:center;position:relative}
+.prev-wrap img{max-height:195px;max-width:100%;border-radius:12px;
+  box-shadow:var(--sh);border:2px solid var(--r)}
+.rm-btn{position:absolute;top:-8px;right:calc(50% - 108px);width:26px;height:26px;
+  background:var(--r);color:#fff;border:none;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 12px rgba(232,25,44,.5)}
+.rm-btn svg{width:13px;height:13px}
+.ps-tt{font-family:var(--fh);font-weight:700;font-size:1.1rem;margin-bottom:1.2rem;
+  color:var(--w);letter-spacing:.5px}
+.ps-det{background:rgba(255,255,255,.04);border:1px solid var(--bdr);
+  border-radius:14px;padding:1.2rem;margin-bottom:1.2rem}
+.prow{display:flex;justify-content:space-between;align-items:center;font-size:.83rem;margin-bottom:8px}
+.prow:last-child{margin-bottom:0;border-top:1px solid rgba(255,255,255,.06);padding-top:9px;margin-top:4px}
+.prow .l{color:var(--t2);font-weight:600}.prow .v{font-weight:800;color:var(--w)}
+.prow .v.big{font-size:1.2rem;color:var(--r);font-family:var(--fh)}
+.ps-steps{margin-bottom:1.3rem}
+.pstep{display:flex;align-items:flex-start;gap:11px;margin-bottom:12px}
+.pstep-n{width:23px;height:23px;background:linear-gradient(135deg,var(--r),var(--o));
+  border-radius:7px;color:#fff;font-size:.64rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.pstep-t{font-size:.82rem;color:var(--t2);font-weight:600;line-height:1.55}
+.btn-green{width:100%;background:linear-gradient(135deg,#0a8a3c,#166534);color:#fff;
+  border:none;border-radius:14px;padding:16px;font-family:var(--f);font-size:1rem;
+  font-weight:800;cursor:pointer;transition:all .25s;display:flex;align-items:center;
+  justify-content:center;gap:9px;box-shadow:0 0 24px rgba(0,180,80,.3)}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 0 36px rgba(0,180,80,.5)}
+.btn-green:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-green svg{width:18px;height:18px}
+
+/* SUCCESS */
+.suc-wrap{max-width:520px;margin:4rem auto;background:var(--card);
+  border-radius:24px;padding:3.5rem 2.75rem;text-align:center;
+  box-shadow:var(--sh2);border:1px solid var(--bdr);position:relative;overflow:hidden}
+.suc-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--r),var(--o),var(--y),var(--g))}
+.suc-ic{width:100px;height:100px;background:linear-gradient(135deg,rgba(0,230,118,.15),rgba(0,230,118,.08));
+  border:2px solid rgba(0,230,118,.3);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.35rem;animation:popin .6s cubic-bezier(.4,0,.2,1)}
+.suc-ic svg{width:50px;height:50px;color:var(--g)}
+@keyframes popin{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+.suc-tt{font-family:var(--fh);font-size:1.8rem;font-weight:700;color:var(--g);
+  margin-bottom:.7rem;letter-spacing:.5px;text-shadow:0 0 20px rgba(0,230,118,.3)}
+.suc-desc{color:var(--t2);font-size:.9rem;line-height:1.75;margin-bottom:1.35rem}
+.suc-id{background:rgba(255,255,255,.05);border:1.5px solid var(--bdr);border-radius:12px;
+  padding:13px;font-family:monospace;font-size:1rem;font-weight:800;
+  letter-spacing:3px;margin-bottom:1.35rem;color:var(--w)}
+.suc-info{background:rgba(0,230,118,.08);border:1.5px solid rgba(0,230,118,.2);
+  border-radius:12px;padding:14px 16px;font-size:.82rem;color:rgba(0,230,118,.9);
+  font-weight:600;margin-bottom:2rem;line-height:1.7;text-align:left}
+.btn-home{display:inline-flex;align-items:center;gap:9px;
+  background:linear-gradient(135deg,var(--r),var(--o));color:#fff;
+  border:none;border-radius:13px;padding:14px 32px;font-family:var(--f);
+  font-size:.95rem;font-weight:800;cursor:pointer;transition:all .25s;
+  box-shadow:0 0 24px rgba(232,25,44,.35)}
+.btn-home:hover{transform:translateY(-2px);box-shadow:0 0 36px rgba(232,25,44,.5)}
+.btn-home svg{width:18px;height:18px}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);
+  padding:2.5rem clamp(1rem,4vw,3rem) 1.75rem;margin-top:3rem}
+.ft-in{max-width:1200px;margin:0 auto}
+.ft-top{display:flex;justify-content:space-between;gap:2.5rem;flex-wrap:wrap;
+  margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--bdr)}
+.ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:.85rem}
+.ft-lt{font-family:var(--fh);font-size:1.2rem;font-weight:700;color:var(--w);letter-spacing:1px}
+.ft-lt b{color:var(--y)}
+.ft-desc{font-size:.83rem;color:var(--t2);max-width:270px;line-height:1.7}
+.ft-col h4{color:rgba(255,255,255,.5);font-size:.78rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.85rem}
+.ft-col a{display:block;color:var(--t2);text-decoration:none;
+  font-size:.83rem;font-weight:600;margin-bottom:.5rem;transition:color .2s}
+.ft-col a:hover{color:var(--y)}
+.ft-copy{text-align:center;font-size:.72rem;color:rgba(255,255,255,.2)}
+
+/* TOAST */
+.toast{position:fixed;bottom:22px;right:22px;border-radius:13px;padding:13px 18px;
+  display:flex;align-items:center;gap:10px;font-size:.88rem;font-weight:700;z-index:999;
+  transform:translateY(120px);opacity:0;transition:all .38s cubic-bezier(.4,0,.2,1);
+  max-width:310px;box-shadow:var(--sh2)}
+.toast.on{transform:translateY(0);opacity:1}
+.toast svg{width:17px;height:17px;flex-shrink:0}
+.t-err{background:#991b1b;color:#fff;border:1px solid rgba(255,100,100,.3)}
+.t-ok{background:#166534;color:#fff;border:1px solid rgba(0,200,100,.3)}
+.t-inf{background:var(--card2);color:var(--t);border:1px solid var(--bdr)}
+.spin{width:16px;height:16px;border:2px solid rgba(255,255,255,.2);
+  border-top-color:#fff;border-radius:50%;animation:sp .6s linear infinite;display:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nlogo" onclick="goHome()">
+    <div class="nlogo-ic">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="6" width="20" height="14" rx="3"/>
+        <path d="M8 11h8M12 8v6"/>
+        <circle cx="17" cy="13" r="1" fill="white" stroke="none"/>
+      </svg>
+    </div>
+    <div class="nlogo-tx">GAME<b>STORE</b> ID</div>
+  </div>
+  <div class="nbadge">TRUSTED SELLER</div>
+</nav>
+
+<!-- HOME -->
+<div class="pg on" id="pg-home">
+  <div class="hero">
+    <div class="hbg"></div>
+    <div class="hbg-g1"></div><div class="hbg-g2"></div><div class="hbg-g3"></div>
+    <div class="hgrid"></div>
+    <div class="hpart" id="hpart"></div>
+    <div class="hero-in">
+      <div>
+        <div class="hbadge">
+          <div class="hbadge-dot"></div>
+          TOP UP GAME TERPERCAYA #1
+        </div>
+        <div class="htitle">
+          Top Up Game<br>
+          <span class="line-grad">Harga Terbaik</span><br>
+          <span class="line-glow">Proses Instan</span>
+        </div>
+        <p class="hdesc">Diamond, UC, VP, CP untuk semua game favoritmu. Harga 5% lebih murah dari Codashop & UniPin, proses kilat 24/7.</p>
+        <div class="hchips">
+          <div class="hchip"><div class="hchip-dot" style="background:var(--g);box-shadow:0 0 8px rgba(0,230,118,.6)"></div>Proses Instan</div>
+          <div class="hchip"><div class="hchip-dot" style="background:var(--b);box-shadow:0 0 8px rgba(0,180,255,.6)"></div>100% Aman</div>
+          <div class="hchip"><div class="hchip-dot" style="background:var(--y);box-shadow:0 0 8px rgba(255,214,0,.6)"></div>5% Lebih Murah</div>
+          <div class="hchip"><div class="hchip-dot" style="background:var(--p);box-shadow:0 0 8px rgba(180,75,255,.6)"></div>QRIS Semua Bank</div>
+        </div>
+        <button class="hcta" onclick="document.getElementById('ggrid').scrollIntoView({behavior:'smooth'})">
+          Mulai Top Up
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <div class="hstats">
+        <div class="hstat"><div class="hsn">50K+</div><div class="hsl">TRANSAKSI</div></div>
+        <div class="hstat"><div class="hsn">8</div><div class="hsl">GAME</div></div>
+        <div class="hstat"><div class="hsn">24/7</div><div class="hsl">AKTIF</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pstrip">
+    <p>&#x26A1; <b>HARGA SPESIAL</b> &#x2014; Semua top up 5% lebih murah dari Codashop &amp; UniPin resmi!</p>
+    <div class="pstrip-badge">HEMAT 5%</div>
+  </div>
+
+  <!-- BANNER -->
+  <div class="bsec">
+    <div class="bsec-hd"><h3>&#x1F3AE; Game Populer</h3></div>
+    <div class="btrack" id="btrack"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="sechd"><div class="secbar"></div><h2>Pilih Game untuk Top Up</h2></div>
+    <div class="ggrid" id="ggrid"></div>
+
+    <div class="sechd" id="cara"><div class="secbar"></div><h2>Cara Order</h2></div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-n"><svg viewBox="0 0 20 20" fill="white"><path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z"/></svg></div><div class="step-tt">1. Pilih Game &amp; Paket</div><div class="step-dd">Pilih game favoritmu dan nominal diamond yang kamu inginkan.</div></div>
+      <div class="step"><div class="step-n"><svg viewBox="0 0 20 20" fill="white"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg></div><div class="step-tt">2. Isi ID &amp; Nomor HP</div><div class="step-dd">Masukkan User ID akun game dan nomor HP aktif kamu.</div></div>
+      <div class="step"><div class="step-n"><svg viewBox="0 0 20 20" fill="white"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg></div><div class="step-tt">3. Scan QRIS &amp; Bayar</div><div class="step-dd">Bayar via QRIS — GoPay, OVO, Dana, ShopeePay, m-Banking.</div></div>
+      <div class="step"><div class="step-n"><svg viewBox="0 0 20 20" fill="white"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg></div><div class="step-tt">4. Upload Bukti Bayar</div><div class="step-dd">Screenshot bukti bayar dan upload di halaman pembayaran.</div></div>
+      <div class="step"><div class="step-n"><svg viewBox="0 0 20 20" fill="white"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div><div class="step-tt">5. Admin Verifikasi</div><div class="step-dd">Admin cek pembayaran dan proses top up kamu segera.</div></div>
+      <div class="step"><div class="step-n"><svg viewBox="0 0 20 20" fill="white"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg></div><div class="step-tt">6. Diamond Masuk!</div><div class="step-dd">Item masuk ke akun dalam 5 menit. Selamat bermain!</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPUP -->
+<div class="pg" id="pg-topup">
+  <div class="pgbody">
+    <div class="wrap">
+      <button class="back-btn" onclick="goHome()">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+        Kembali ke Beranda
+      </button>
+      <div class="tu-layout">
+        <div class="card">
+          <div class="tu-ghd">
+            <div class="tu-gico"><img id="tu-img" src="" alt="game" onerror="this.style.display='none'"></div>
+            <div>
+              <div class="tu-gname" id="tu-gname">—</div>
+              <div class="tu-gsub">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                Harga 5% lebih murah dari pasaran resmi
+              </div>
+            </div>
+          </div>
+          <div class="slbl"><div class="snum">1</div> INFO AKUN</div>
+          <div class="fi">
+            <label class="fl" id="uid-lbl">User ID</label>
+            <input class="inp" id="uid-inp" placeholder="Masukkan User ID" oninput="syncSum()">
+            <div class="fhint" id="uid-hint">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+            </div>
+          </div>
+          <div class="fi" id="srv-fi" style="display:none">
+            <label class="fl">Zone / Server ID</label>
+            <input class="inp" id="srv-inp" placeholder="Contoh: 1234" oninput="syncSum()">
+            <div class="fhint">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+              Lihat di bawah User ID kamu di profil game
+            </div>
+          </div>
+          <div class="fi">
+            <label class="fl">Nomor HP (WhatsApp Aktif)</label>
+            <input class="inp" id="phone-inp" type="tel" placeholder="Contoh: 08123456789" oninput="syncSum()">
+            <div class="fhint">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+              Untuk konfirmasi pesanan jika diperlukan
+            </div>
+          </div>
+          <div class="divdr"></div>
+          <div class="slbl"><div class="snum">2</div> PILIH PAKET</div>
+          <div class="pkg-grid" id="pkg-grid"></div>
+        </div>
+        <div class="card">
+          <div class="oc-tt">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v6a1 1 0 102 0V8z" clip-rule="evenodd"/></svg>
+            Ringkasan Order
+          </div>
+          <div class="omini">
+            <div class="omini-ico"><img id="sum-img" src="" alt="g" onerror="this.style.display='none'"></div>
+            <div>
+              <div class="omini-name" id="sum-gname">—</div>
+              <div class="omini-sub" id="sum-gsub">Pilih paket dulu</div>
+            </div>
+          </div>
+          <div class="orow"><span class="l">User ID</span><span class="v" id="sum-uid">—</span></div>
+          <div class="orow" id="sum-srv-row" style="display:none"><span class="l">Zone/Server</span><span class="v" id="sum-srv">—</span></div>
+          <div class="orow"><span class="l">No. HP</span><span class="v" id="sum-phone">—</span></div>
+          <div class="orow"><span class="l">Paket</span><span class="v" id="sum-pkg">—</span></div>
+          <div class="ototal">
+            <span class="otl">Total Bayar</span>
+            <span class="otv" id="sum-total">Rp —</span>
+          </div>
+          <button class="btn-red" onclick="goToPayment()">
+            Lanjut Pembayaran
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT -->
+<div class="pg" id="pg-payment">
+  <div class="pgbody">
+    <div class="wrap">
+      <button class="back-btn" onclick="goPage('pg-topup')">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+        Kembali ke Detail Order
+      </button>
+      <div class="pay-layout">
+        <div class="card">
+          <div class="pay-tt">Pembayaran via QRIS</div>
+          <div class="qris-box">
+            <div class="qris-hd">Scan QR Code di Bawah</div>
+            <div class="qris-sub">Buka aplikasi pembayaran → pilih Scan QR</div>
+            <div class="qris-frame">
+              <div class="qc tl"></div><div class="qc tr"></div>
+              <div class="qc bl"></div><div class="qc br"></div>
+              <img id="qris-img" src="/qris.jpg" alt="QRIS"
+                onerror="this.outerHTML='<div style=padding:20px;text-align:center;color:#666;font-size:.85rem><b>QRIS</b><br><br>Upload qris.jpg<br>ke folder public/</div>'">
+            </div>
+            <div class="qris-amt">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="18"><path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/></svg>
+              <span id="qris-total">Rp 0</span>
+            </div>
+            <div class="pay-apps">
+              <div class="papp">GoPay</div><div class="papp">OVO</div>
+              <div class="papp">Dana</div><div class="papp">ShopeePay</div>
+              <div class="papp">m-Banking</div>
+            </div>
+          </div>
+          <div class="up-sec">
+            <div class="up-tt">Upload Bukti Transfer</div>
+            <div class="up-sub">Setelah bayar, screenshot bukti dan upload di sini untuk diverifikasi.</div>
+            <div class="drop" id="drop" onclick="document.getElementById('finp').click()"
+              ondragover="event.preventDefault();this.classList.add('ov')"
+              ondragleave="this.classList.remove('ov')" ondrop="handleDrop(event)">
+              <div class="drop-ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                  <polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/>
+                  <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+                </svg>
+              </div>
+              <div class="drop-tx">Klik atau <span>drag &amp; drop</span> di sini</div>
+              <div class="drop-hint">JPG / PNG &#xB7; Maks 5MB</div>
+            </div>
+            <input type="file" id="finp" accept="image/*" style="display:none" onchange="handleFile(event)">
+            <div class="prev-wrap" id="prev-wrap">
+              <img id="prev-img" src="" alt="Bukti">
+              <button class="rm-btn" onclick="removeFile()">
+                <svg viewBox="0 0 20 20" fill="white"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ps-tt">Detail Pesanan</div>
+          <div class="ps-det">
+            <div class="prow"><span class="l">Order ID</span><span class="v" id="ps-oid">—</span></div>
+            <div class="prow"><span class="l">Game</span><span class="v" id="ps-game">—</span></div>
+            <div class="prow"><span class="l">User ID</span><span class="v" id="ps-uid">—</span></div>
+            <div class="prow" id="ps-srv-row" style="display:none"><span class="l">Server</span><span class="v" id="ps-srv">—</span></div>
+            <div class="prow"><span class="l">No. HP</span><span class="v" id="ps-phone">—</span></div>
+            <div class="prow"><span class="l">Paket</span><span class="v" id="ps-pkg">—</span></div>
+            <div class="prow"><span class="l">Total</span><span class="v big" id="ps-total">—</span></div>
+          </div>
+          <div class="ps-steps">
+            <div class="pstep"><div class="pstep-n">1</div><div class="pstep-t">Buka aplikasi pembayaran (GoPay/OVO/Dana/dll)</div></div>
+            <div class="pstep"><div class="pstep-n">2</div><div class="pstep-t">Scan QRIS dan bayar sesuai nominal</div></div>
+            <div class="pstep"><div class="pstep-n">3</div><div class="pstep-t">Screenshot bukti bayar lalu upload di sebelah kiri</div></div>
+            <div class="pstep"><div class="pstep-n">4</div><div class="pstep-t">Klik tombol Konfirmasi Pembayaran</div></div>
+          </div>
+          <button class="btn-green" id="btn-pay" onclick="submitPayment()">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <span id="pay-txt">Konfirmasi Pembayaran</span>
+            <div class="spin" id="pay-spin"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS -->
+<div class="pg" id="pg-success">
+  <div class="pgbody">
+    <div class="wrap">
+      <div class="suc-wrap">
+        <div class="suc-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <div class="suc-tt">Pembayaran Diterima!</div>
+        <div class="suc-desc">Bukti pembayaranmu sudah kami terima. Admin sedang memproses pesananmu sekarang.</div>
+        <div class="suc-id" id="suc-oid">ORDER #——</div>
+        <div class="suc-info">
+          &#x23F1; Estimasi proses: <strong>5 menit</strong><br>
+          &#x1F4F1; Konfirmasi ke nomor HP yang kamu daftarkan<br>
+          &#x2753; Lebih dari 5 menit? Hubungi admin kami
+        </div>
+        <button class="btn-home" onclick="goHome()">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+          Kembali ke Beranda
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-in">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo">
+          <div class="nlogo-ic" style="width:34px;height:34px;border-radius:9px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" width="18"><rect x="2" y="6" width="20" height="14" rx="3"/><path d="M8 11h8M12 8v6"/></svg>
+          </div>
+          <div class="ft-lt">GAME<b>STORE</b> ID</div>
+        </div>
+        <div class="ft-desc">Top Up Game Terpercaya. Harga 5% lebih murah dari pasaran resmi, proses instan, aman 24/7.</div>
+      </div>
+      <div class="ft-col">
+        <h4>Menu</h4>
+        <a href="#" onclick="goHome()">Beranda</a>
+        <a href="#cara" onclick="goHome()">Cara Order</a>
+      </div>
+      <div class="ft-col">
+        <h4>Game</h4>
+        <a href="#" onclick="selectGame('ff')">Free Fire</a>
+        <a href="#" onclick="selectGame('mlbb')">Mobile Legends</a>
+        <a href="#" onclick="selectGame('pubg')">PUBG Mobile</a>
+        <a href="#" onclick="selectGame('valorant')">Valorant</a>
+      </div>
+    </div>
+    <div class="ft-copy">&copy; 2025 GameStore ID &mdash; All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <svg id="t-svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+  <span id="t-msg">Pesan</span>
+</div>
+
+<script>
+// ── GEM SVG per currency ────────────────────────────────
+function gem(cur) {
+  var colors = {
+    'Diamond':['#66ddff','#0099ee','#004488'],
+    'UC':['#ffe566','#ffaa00','#886600'],
+    'VP':['#ff7799','#ff1155','#880033'],
+    'CP':['#88ffbb','#00cc55','#006622'],
+    'Genesis Crystal':['#dd99ff','#9922ee','#550099'],
+    'Oneiric Shard':['#88ccff','#3366ff','#001188']
+  };
+  var c = colors[cur] || colors['Diamond'];
+  var id = 'g' + cur.replace(/\s/g,'');
+  return '<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs>' +
+    '<linearGradient id="'+id+'" x1="0%" y1="0%" x2="100%" y2="100%">' +
+    '<stop offset="0%" stop-color="'+c[0]+'"/>' +
+    '<stop offset="50%" stop-color="'+c[1]+'"/>' +
+    '<stop offset="100%" stop-color="'+c[2]+'"/>' +
+    '</linearGradient></defs>' +
+    '<polygon points="20,2 38,12 38,28 20,38 2,28 2,12" fill="url(#'+id+')"/>' +
+    '<polygon points="20,2 38,12 20,18 2,12" fill="rgba(255,255,255,.4)"/>' +
+    '<polygon points="20,18 38,12 38,28 20,38" fill="rgba(0,0,0,.18)"/>' +
+    '<line x1="2" y1="12" x2="38" y2="12" stroke="rgba(255,255,255,.55)" stroke-width="1.2"/>' +
+    '<ellipse cx="14" cy="8" rx="5" ry="3" fill="rgba(255,255,255,.2)" transform="rotate(-20,14,8)"/>' +
+    '</svg>';
+}
+
+// ── GAME DATA ────────────────────────────────────────────
+// Icons load dari /images/ folder (upload di GitHub)
+// Fallback ke gradient warna game jika gambar belum ada
+var IMG_PATH = '/images/';
+var GBG = {
+  ff:      'linear-gradient(145deg,#1a0002,#6b0010,#cc1500,#ff4400)',
+  mlbb:    'linear-gradient(145deg,#000a1a,#001060,#0033bb,#0066ff)',
+  pubg:    'linear-gradient(145deg,#060400,#2a1a00,#886600,#cc9900)',
+  genshin: 'linear-gradient(145deg,#020510,#051840,#0a3090,#1060cc)',
+  cod:     'linear-gradient(145deg,#050500,#0a0a00,#181400,#252200)',
+  valorant:'linear-gradient(145deg,#08000e,#1a000c,#440014,#880028)',
+  honkai:  'linear-gradient(145deg,#01000a,#020020,#040080,#0000cc)',
+  ml2:     'linear-gradient(145deg,#0a0015,#200040,#550090,#8800cc)'
+};
+var GAMES = {
+  ff:{name:'Garena Free Fire',short:'Free Fire',currency:'Diamond',uidLabel:'User ID',
+    uidHint:'Cek User ID di lobby atau profil akun Free Fire kamu',needServer:false,badge:'HOT',
+    packages:[
+      {amt:'16',price:4700,orig:5000},{amt:'100',price:14200,orig:15000},
+      {amt:'210',price:27500,orig:29000,hot:true},{amt:'355',price:46500,orig:49000},
+      {amt:'520',price:65500,orig:69000},{amt:'1060',price:132000,orig:139000,hot:true},
+      {amt:'2180',price:265000,orig:279000},{amt:'5600',price:664000,orig:699000}
+    ]},
+  mlbb:{name:'Mobile Legends: Bang Bang',short:'Mobile Legends',currency:'Diamond',uidLabel:'User ID',
+    uidHint:'Cek User ID + Zone ID di profil Mobile Legends kamu',needServer:true,badge:'HOT',
+    packages:[
+      {amt:'11',price:2800,orig:3000},{amt:'22',price:4700,orig:5000},
+      {amt:'56',price:11400,orig:12000,hot:true},{amt:'112',price:22800,orig:24000},
+      {amt:'195',price:38000,orig:40000},{amt:'257',price:50300,orig:53000,hot:true},
+      {amt:'570',price:109200,orig:115000},{amt:'1155',price:218500,orig:230000}
+    ]},
+  pubg:{name:'PUBG Mobile',short:'PUBG Mobile',currency:'UC',uidLabel:'Player ID',
+    uidHint:'Cek Player ID di profil karakter PUBG Mobile kamu',needServer:false,badge:null,
+    packages:[
+      {amt:'60',price:14200,orig:15000},{amt:'325',price:71200,orig:75000,hot:true},
+      {amt:'660',price:141500,orig:149000},{amt:'1800',price:379000,orig:399000}
+    ]},
+  genshin:{name:'Genshin Impact',short:'Genshin Impact',currency:'Genesis Crystal',uidLabel:'UID',
+    uidHint:'Cek UID di sudut kiri bawah layar Genshin Impact',needServer:true,badge:null,
+    packages:[
+      {amt:'60',price:19000,orig:20000},{amt:'330',price:93100,orig:98000,hot:true},
+      {amt:'1090',price:311600,orig:328000},{amt:'2240',price:615600,orig:648000}
+    ]},
+  cod:{name:'Call of Duty Mobile',short:'COD Mobile',currency:'CP',uidLabel:'Player ID',
+    uidHint:'Cek Player ID di menu profil Call of Duty Mobile kamu',needServer:false,badge:null,
+    packages:[
+      {amt:'80',price:15200,orig:16000},{amt:'400',price:71200,orig:75000,hot:true},
+      {amt:'800',price:141500,orig:149000},{amt:'2000',price:341000,orig:359000}
+    ]},
+  valorant:{name:'Valorant',short:'Valorant',currency:'VP',uidLabel:'Riot ID',
+    uidHint:'Format: NamaKamu#TAG — lihat di profil Valorant kamu',needServer:false,badge:'NEW',
+    packages:[
+      {amt:'475',price:61700,orig:65000},{amt:'1000',price:122500,orig:129000,hot:true},
+      {amt:'2050',price:246000,orig:259000},{amt:'3650',price:436000,orig:459000}
+    ]},
+  honkai:{name:'Honkai: Star Rail',short:'Star Rail',currency:'Oneiric Shard',uidLabel:'UID',
+    uidHint:'Cek UID di menu profil Honkai: Star Rail kamu',needServer:true,badge:'NEW',
+    packages:[
+      {amt:'60',price:19000,orig:20000},{amt:'330',price:93100,orig:98000,hot:true},
+      {amt:'1090',price:311600,orig:328000},{amt:'2240',price:615600,orig:648000}
+    ]},
+  ml2:{name:'Magic Chess: Go Go',short:'Magic Chess',currency:'Diamond',uidLabel:'User ID',
+    uidHint:'Cek User ID di profil Magic Chess (sama dengan MLBB)',needServer:false,badge:'HOT',
+    packages:[
+      {amt:'11',price:2800,orig:3000},{amt:'56',price:11400,orig:12000,hot:true},
+      {amt:'112',price:22800,orig:24000},{amt:'257',price:50300,orig:53000}
+    ]}
+};
+
+var S = {game:null,pkgIdx:null,file:null,oid:null};
+
+// ── PARTICLES ───────────────────────────────────────────
+(function(){
+  var hp = document.getElementById('hpart');
+  var colors = ['rgba(232,25,44,.6)','rgba(255,107,26,.5)','rgba(255,214,0,.4)','rgba(0,180,255,.4)','rgba(180,75,255,.4)'];
+  for(var i=0;i<18;i++){
+    var d=document.createElement('div');
+    d.className='hp';
+    var sz = Math.random()*4+2;
+    d.style.cssText='width:'+sz+'px;height:'+sz+'px;background:'+colors[Math.floor(Math.random()*colors.length)]+
+      ';left:'+Math.random()*100+'%;animation-duration:'+(Math.random()*15+8)+'s;animation-delay:'+(Math.random()*8)+'s;border-radius:50%;filter:blur(1px)';
+    hp.appendChild(d);
+  }
+})();
+
+// ── HELPER: build icon HTML ──────────────────────────────
+function iconHtml(id, cls, fallbackFontSize) {
+  cls = cls || '';
+  fallbackFontSize = fallbackFontSize || '2.5rem';
+  var emoji = {ff:'🔥',mlbb:'⚔️',pubg:'🪖',genshin:'🌟',cod:'🔫',valorant:'🎯',honkai:'🌌',ml2:'♟️'};
+  // Try /images/id.png — if fails show colored fallback div
+  return '<img src="'+IMG_PATH+id+'.png" alt="" '+cls+
+    ' onerror="this.parentNode.innerHTML=\'<div class=gc-icon-fallback style=background:'+encodeURIComponent(GBG[id])+'\'>'+emoji[id]+'</div>\'">';
+}
+
+// ── BOOT ────────────────────────────────────────────────
+(function(){
+  var keys = Object.keys(GAMES);
+
+  // Banner slider
+  var bt = document.getElementById('btrack');
+  keys.forEach(function(id){
+    var g = GAMES[id];
+    var d = document.createElement('div');
+    d.className = 'bcard';
+    d.onclick = function(){ selectGame(id); };
+    d.innerHTML =
+      '<div class="bcard-top" style="background:'+GBG[id]+'">' +
+        '<div class="bcard-bg" style="background:'+GBG[id]+'"></div>' +
+        '<div class="bcard-overlay"></div>' +
+        (g.badge ? '<div class="bcard-badge '+(g.badge==='HOT'?'b-hot':'b-new')+'">'+g.badge+'</div>' : '') +
+        '<div class="bcard-icon">'+iconHtml(id)+'</div>' +
+      '</div>' +
+      '<div class="bcard-info">' +
+        '<div class="bcard-name">'+g.short+'</div>' +
+        '<div class="bcard-price">Mulai <b>'+rp(g.packages[0].price)+'</b></div>' +
+      '</div>';
+    bt.appendChild(d);
+  });
+
+  // Game grid
+  var grid = document.getElementById('ggrid');
+  keys.forEach(function(id){
+    var g = GAMES[id];
+    var d = document.createElement('div');
+    d.className = 'gc'; d.id = 'gc-'+id;
+    d.onclick = function(){ selectGame(id); };
+    d.innerHTML =
+      '<div class="gc-check"><svg viewBox="0 0 20 20" fill="white"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>' +
+      '<div class="gc-thumb" style="background:'+GBG[id]+'">' +
+        '<div class="gc-thumb-bg" style="background:'+GBG[id]+'"></div>' +
+        '<div class="gc-thumb-overlay"></div>' +
+        '<div class="gc-icon">'+iconHtml(id)+'</div>' +
+        (g.badge ? '<div class="gc-badge '+(g.badge==='HOT'?'b-hot':'b-new')+'">'+g.badge+'</div>' : '') +
+      '</div>' +
+      '<div class="gc-info">' +
+        '<div class="gc-name">'+g.short+'</div>' +
+        '<div class="gc-sub">'+g.currency+' &middot; <span class="pr">'+rp(g.packages[0].price)+'</span></div>' +
+      '</div>';
+    grid.appendChild(d);
+  });
+
+  restoreSession();
+})();
+
+// ── SESSION ──────────────────────────────────────────────
+function restoreSession(){
+  try{
+    var sv=sessionStorage.getItem('gs'); if(!sv) return;
+    var st=JSON.parse(sv);
+    if(!st.page||!st.game||!GAMES[st.game]) return;
+    S.game=st.game; S.pkgIdx=st.pkgIdx!=null?st.pkgIdx:null; S.oid=st.oid||null;
+    initUI(st.game); renderPkgs(st.game);
+    if(st.uid) document.getElementById('uid-inp').value=st.uid;
+    if(st.srv) document.getElementById('srv-inp').value=st.srv;
+    if(st.phone) document.getElementById('phone-inp').value=st.phone;
+    if(st.pkgIdx!=null){var pe=document.getElementById('pkg-'+st.pkgIdx);if(pe)pe.classList.add('on');}
+    var ge=document.getElementById('gc-'+st.game);if(ge)ge.classList.add('on');
+    document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on');});
+    document.getElementById(st.page).classList.add('on');
+    if(st.page==='pg-payment'&&st.oid){
+      var g=GAMES[st.game],p=g.packages[st.pkgIdx||0];
+      if(p){
+        document.getElementById('qris-total').textContent=rp(p.price);
+        document.getElementById('ps-oid').textContent='#'+st.oid;
+        document.getElementById('ps-game').textContent=g.short;
+        document.getElementById('ps-uid').textContent=st.uid||'—';
+        document.getElementById('ps-phone').textContent=st.phone||'—';
+        document.getElementById('ps-pkg').textContent=p.amt+' '+g.currency;
+        document.getElementById('ps-total').textContent=rp(p.price);
+      }
+    }
+    syncSum();
+  }catch(e){ sessionStorage.removeItem('gs'); }
+}
+function saveSession(page){
+  sessionStorage.setItem('gs',JSON.stringify({
+    page:page,game:S.game,pkgIdx:S.pkgIdx,oid:S.oid,
+    uid:document.getElementById('uid-inp').value||'',
+    srv:document.getElementById('srv-inp').value||'',
+    phone:document.getElementById('phone-inp').value||''
+  }));
+}
+function goPage(id){
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on');});
+  document.getElementById(id).classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+  saveSession(id);
+}
+function goHome(){
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on');});
+  document.getElementById('pg-home').classList.add('on');
+  document.querySelectorAll('.gc').forEach(function(c){c.classList.remove('on');});
+  window.scrollTo({top:0,behavior:'smooth'});
+  S={game:null,pkgIdx:null,file:null,oid:null};
+  sessionStorage.removeItem('gs');
+}
+
+function initUI(id){
+  var g=GAMES[id];
+  // Set images — load dari /images/
+  var imgs=[document.getElementById('tu-img'),document.getElementById('sum-img')];
+  imgs.forEach(function(el){if(el){el.src=IMG_PATH+id+'.png';el.onerror=function(){el.style.display='none';};}});
+  document.getElementById('tu-gname').textContent=g.short;
+  document.getElementById('uid-lbl').textContent=g.uidLabel;
+  document.getElementById('uid-inp').placeholder='Masukkan '+g.uidLabel;
+  var hint=document.getElementById('uid-hint');
+  hint.innerHTML='<svg viewBox="0 0 20 20" fill="currentColor" style="width:13px;height:13px;flex-shrink:0;color:#3b82f6"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg> '+g.uidHint;
+  document.getElementById('srv-fi').style.display=g.needServer?'block':'none';
+  document.getElementById('sum-srv-row').style.display=g.needServer?'flex':'none';
+  document.getElementById('sum-gname').textContent=g.short;
+  document.getElementById('sum-gsub').textContent='Pilih paket dulu';
+  // set omini icon
+  var oi=document.getElementById('sum-img');if(oi)oi.src=IMG_PATH+id+'.png';
+}
+
+function selectGame(id){
+  S.game=id; S.pkgIdx=null;
+  document.querySelectorAll('.gc').forEach(function(c){c.classList.remove('on');});
+  var el=document.getElementById('gc-'+id);if(el)el.classList.add('on');
+  document.getElementById('uid-inp').value='';
+  document.getElementById('srv-inp').value='';
+  document.getElementById('phone-inp').value='';
+  initUI(id); renderPkgs(id);
+  goPage('pg-topup');
+  setTimeout(function(){document.getElementById('uid-inp').focus();},300);
+}
+
+function renderPkgs(id){
+  var g=GAMES[id],grid=document.getElementById('pkg-grid');
+  grid.innerHTML='';
+  for(var i=0;i<g.packages.length;i++){
+    var p=g.packages[i],disc=Math.round((1-p.price/p.orig)*100);
+    var d=document.createElement('div');d.className='pkg';d.id='pkg-'+i;
+    d.innerHTML=
+      (p.hot?'<div class="pkg-hot">⭐ TERLARIS</div>':'')+
+      '<div class="pkg-gem">'+gem(g.currency)+'</div>'+
+      '<div class="pamt">'+p.amt+'</div>'+
+      '<div class="pcur">'+g.currency+'</div>'+
+      '<div class="pprice">'+rp(p.price)+'</div>'+
+      '<div class="porig">'+rp(p.orig)+'</div>'+
+      '<div class="pdisc">HEMAT '+disc+'%</div>';
+    d.onclick=(function(idx){return function(){selPkg(idx);};})(i);
+    grid.appendChild(d);
+  }
+}
+function selPkg(i){
+  S.pkgIdx=i;
+  document.querySelectorAll('.pkg').forEach(function(p){p.classList.remove('on');});
+  document.getElementById('pkg-'+i).classList.add('on');
+  syncSum();
+}
+function syncSum(){
+  if(!S.game) return;
+  var g=GAMES[S.game];
+  var uid=document.getElementById('uid-inp').value.trim();
+  var srv=document.getElementById('srv-inp').value.trim();
+  var phone=document.getElementById('phone-inp').value.trim();
+  document.getElementById('sum-uid').textContent=uid||'—';
+  document.getElementById('sum-srv').textContent=srv||'—';
+  document.getElementById('sum-phone').textContent=phone||'—';
+  if(S.pkgIdx!==null){
+    var p=g.packages[S.pkgIdx];
+    document.getElementById('sum-pkg').textContent=p.amt+' '+g.currency;
+    document.getElementById('sum-total').textContent=rp(p.price);
+    document.getElementById('sum-gsub').textContent=p.amt+' '+g.currency+' · '+rp(p.price);
+  }
+}
+function goToPayment(){
+  if(!S.game){toast('Pilih game dulu!','err');return;}
+  if(S.pkgIdx===null){toast('Pilih paket dulu!','err');return;}
+  var uid=document.getElementById('uid-inp').value.trim();
+  if(!uid){toast('Masukkan '+GAMES[S.game].uidLabel+' dulu!','err');return;}
+  var phone=document.getElementById('phone-inp').value.trim();
+  if(!phone){toast('Masukkan nomor HP aktif kamu!','err');return;}
+  var g=GAMES[S.game],p=g.packages[S.pkgIdx];
+  var srv=document.getElementById('srv-inp').value.trim();
+  S.oid=genId();
+  document.getElementById('qris-total').textContent=rp(p.price);
+  document.getElementById('ps-oid').textContent='#'+S.oid;
+  document.getElementById('ps-game').textContent=g.short;
+  document.getElementById('ps-uid').textContent=uid;
+  var psrv=document.getElementById('ps-srv-row');
+  if(g.needServer&&srv){psrv.style.display='flex';document.getElementById('ps-srv').textContent=srv;}
+  else psrv.style.display='none';
+  document.getElementById('ps-phone').textContent=phone;
+  document.getElementById('ps-pkg').textContent=p.amt+' '+g.currency;
+  document.getElementById('ps-total').textContent=rp(p.price);
+  removeFile(); goPage('pg-payment');
+}
+function handleFile(e){if(e.target.files[0])loadFile(e.target.files[0]);}
+function handleDrop(e){e.preventDefault();document.getElementById('drop').classList.remove('ov');if(e.dataTransfer.files[0])loadFile(e.dataTransfer.files[0]);}
+function loadFile(f){
+  if(!f.type.startsWith('image/')){toast('Harus file gambar!','err');return;}
+  if(f.size>5*1024*1024){toast('Ukuran maks 5MB!','err');return;}
+  S.file=f;
+  var r=new FileReader();
+  r.onload=function(e){
+    document.getElementById('prev-img').src=e.target.result;
+    document.getElementById('prev-wrap').style.display='flex';
+    document.getElementById('drop').style.display='none';
+  };
+  r.readAsDataURL(f);
+  toast('Bukti berhasil diupload!','ok');
+}
+function removeFile(){
+  S.file=null;document.getElementById('finp').value='';
+  document.getElementById('prev-wrap').style.display='none';
+  document.getElementById('drop').style.display='block';
+}
+async function submitPayment(){
+  if(!S.file){toast('Upload bukti pembayaran dulu!','err');return;}
+  var g=GAMES[S.game],p=g.packages[S.pkgIdx];
+  var uid=document.getElementById('uid-inp').value.trim();
+  var srv=document.getElementById('srv-inp').value.trim();
+  var phone=document.getElementById('phone-inp').value.trim();
+  var btn=document.getElementById('btn-pay'),txt=document.getElementById('pay-txt'),spin=document.getElementById('pay-spin');
+  btn.disabled=true;txt.textContent='Mengirim...';spin.style.display='block';
+  try{
+    var fd=new FormData();
+    fd.append('orderId',S.oid);fd.append('game',S.game);
+    fd.append('gameName',g.name);fd.append('uidLabel',g.uidLabel);
+    fd.append('userId',uid);fd.append('server',srv);fd.append('phone',phone);
+    fd.append('paket',p.amt+' '+g.currency);fd.append('total',rp(p.price));
+    fd.append('bukti',S.file,'bukti_'+S.oid+'.jpg');
+    var res=await fetch('/api/order',{method:'POST',body:fd});
+    var data=await res.json();
+    if(data.ok){
+      document.getElementById('suc-oid').textContent='ORDER #'+S.oid;
+      sessionStorage.removeItem('gs');goPage('pg-success');
+    }else{
+      toast(data.message||'Gagal kirim. Coba lagi.','err');
+      btn.disabled=false;txt.textContent='Konfirmasi Pembayaran';spin.style.display='none';
+    }
+  }catch(e){
+    toast('Koneksi gagal. Coba lagi.','err');
+    btn.disabled=false;txt.textContent='Konfirmasi Pembayaran';spin.style.display='none';
+  }
+}
+function rp(n){return 'Rp '+n.toLocaleString('id-ID');}
+function genId(){return Date.now().toString(36).toUpperCase()+Math.random().toString(36).substr(2,5).toUpperCase();}
+function toast(msg,type){
+  var el=document.getElementById('toast');
+  document.getElementById('t-msg').textContent=msg;
+  el.className='toast on t-'+(type||'inf');
+  clearTimeout(el._t);
+  el._t=setTimeout(function(){el.className='toast';},3500);
+}
+</script>
+</body>
+</html>
